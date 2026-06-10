@@ -1,0 +1,5 @@
+node_modules/
+test/.bundle.mjs
+.DS_Store
+# parent repo ignores dist/ globally; ours is the loadable extension, keep it
+!dist/

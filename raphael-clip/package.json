@@ -1,0 +1,20 @@
+{
+  "name": "raphael-clip",
+  "version": "0.1.0",
+  "private": true,
+  "description": "在 DeepSeek / Kimi 回复旁注入一键排版复制按钮（公众号格式），排版引擎移植自 raphael-publish (MIT)",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node test/smoke.mjs"
+  },
+  "dependencies": {
+    "highlight.js": "^11.9.0",
+    "markdown-it": "^14.1.0",
+    "turndown": "^7.2.0",
+    "turndown-plugin-gfm": "^1.0.2"
+  },
+  "devDependencies": {
+    "esbuild": "^0.21.0",
+    "jsdom": "^24.0.0"
+  }
+}

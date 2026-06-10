@@ -1,0 +1,130 @@
+/* Button bar — sits inside the site's native action-icon row, so it must
+   adapt to both light and dark themes: text follows the site (inherit),
+   chrome is translucent gray. */
+.rclip-bar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 8px;
+  font-size: 12px;
+  line-height: 1;
+  color: inherit;
+  border: 1px solid rgba(128, 128, 128, 0.4);
+  border-radius: 999px;
+  vertical-align: middle;
+}
+
+.rclip-bar button {
+  appearance: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  opacity: 0.85;
+  padding: 6px 11px;
+  white-space: nowrap;
+}
+
+.rclip-bar button:hover {
+  background: rgba(128, 128, 128, 0.15);
+  opacity: 1;
+}
+
+.rclip-main {
+  border-radius: 999px 0 0 999px;
+  font-weight: 500;
+}
+
+.rclip-main:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.rclip-caret {
+  border-left: 1px solid rgba(128, 128, 128, 0.3) !important;
+  border-radius: 0 999px 999px 0;
+  padding: 6px 8px !important;
+  font-size: 10px;
+}
+
+/* The menu pops above the bar. It uses a fixed light palette (explicit text
+   color — do NOT inherit, the site may be in dark mode). */
+.rclip-menu {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  right: 0;
+  min-width: 180px;
+  background: #ffffff;
+  color: #374151;
+  border: 1px solid rgba(120, 120, 130, 0.25);
+  border-radius: 12px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  z-index: 2147483000;
+}
+
+/* `display: flex` above beats the UA stylesheet's [hidden] rule — restore it
+   explicitly, otherwise the menu is permanently visible (empty white pill). */
+.rclip-menu[hidden] {
+  display: none !important;
+}
+
+.rclip-menu button {
+  color: #374151;
+  opacity: 1;
+  font-size: 13px;
+}
+
+.rclip-item {
+  text-align: left;
+  border-radius: 7px !important;
+  padding: 8px 10px !important;
+}
+
+.rclip-item:hover {
+  background: rgba(0, 0, 0, 0.05) !important;
+}
+
+.rclip-item-active {
+  font-weight: 600;
+  color: #0b7a4b !important;
+}
+
+.rclip-item-active::after {
+  content: ' ✓';
+}
+
+.rclip-more {
+  color: #6b7280 !important;
+}
+
+.rclip-sep {
+  height: 1px;
+  margin: 4px 6px;
+  background: rgba(120, 120, 130, 0.25);
+}
+
+.rclip-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 48px;
+  transform: translateX(-50%) translateY(12px);
+  background: rgba(30, 30, 32, 0.92);
+  color: #fff;
+  font-size: 13px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 2147483647;
+  pointer-events: none;
+  max-width: 80vw;
+}
+
+.rclip-toast-show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}

@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Raphael Clip - AI 回复一键公众号排版",
+  "version": "0.1.0",
+  "description": "在 DeepSeek / Kimi 的回复旁注入排版复制按钮，一键复制为微信公众号可直接粘贴的排版格式。排版引擎基于 raphael-publish (MIT)。",
+  "permissions": ["storage", "clipboardWrite"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "打开 Raphael Clip 排版预览"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chat.deepseek.com/*",
+        "https://www.kimi.com/*",
+        "https://kimi.com/*",
+        "https://kimi.moonshot.cn/*"
+      ],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
